@@ -1,0 +1,13 @@
+*// Escreva um programa para calcular a redução do tempo de vida de um fumante.
+ Pergunte a quantidade de cigarros fumados por dias e quantos anos ele já fumou.
+ Considere que um fumante perde10 mindevidaacadacigarro. Calcule quantos dias de
+ vida umfumante perderá e exiba o total em dias. *//
+
+const prompt = require('prompt-sync')();
+
+const cigarrosPorDia = parseInt(prompt("Quantidade de cigarros por dia:"));
+const anosFumando = parseFloat(prompt("Quantidade de anos fumando:"));
+const reducaoEmMinutos = anosFumando * 365 * cigarrosPorDia * 10;
+
+const reducaoEmDias = reducaoEmMinutos / (24 * 60);
+console.log(`Redução do tempo de vida ${reducaoEmDias.toFixed(2)} dias.`);
