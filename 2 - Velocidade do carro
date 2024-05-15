@@ -1,0 +1,14 @@
+*// Escreva um programa que pergunte avelocidade de umcarro. Caso ultrapasse 80 Km
+ h-1, exiba uma mensagem dizendo que o usuário foi multado. Nesse caso, exiba o valor da
+ multa, cobrando R$ 5,00 por cada Km acima davelocidade permitida. *//
+
+const prompt = require('prompt-sync')();
+
+let velocidade = parseFloat(prompt("Digite a velocidade do seu carro:"));
+if (velocidade > 80) {
+    let multa = (velocidade - 80) * 5;
+    console.log(`Você foi multado em R$ ${multa.toFixed(2)}!`);
+}
+if (velocidade <= 80) {
+    console.log("Sua velocidade está ok, boa viagem!");
+}
