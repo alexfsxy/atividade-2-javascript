@@ -1,0 +1,25 @@
+//*  Crie um jogo onde o computador vai sortear um número entre 1 e 5. O jogador vai
+ tentar descobrir qual foi o valor sorteado. *//
+
+const prompt = require('prompt-sync')();
+
+let N_desafio = "028";
+let nome_desafio = "Jogo da Adivinhação v.1.0";
+console.log(`$' DESAFIOf'  ${N_desafio}'=^'${nome_desafio.length}`);
+console.log(nome_desafio);
+console.log('=' * nome_desafio.length);
+
+let msg_pgr = "vou pensar em um número entre 0 e 5. Tente adivinhar...";
+console.log('-+'.repeat(msg_pgr.length / 2));
+console.log(msg_pgr);
+console.log('-+'.repeat(msg_pgr.length / 2));
+
+const number_random = Math.floor(Math.random() * 6);
+
+const number_user = parseInt(prompt("Em que número eu pensei? "));
+
+if (number_user === number_random) {
+    console.log("parabéns, você acertou!");
+} else {
+    console.log("Não foi dessa vez, tende novamente!");
+}
