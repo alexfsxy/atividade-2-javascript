@@ -1,0 +1,62 @@
+//* Crie um jogo de JoKenPo (Pedra-Papel-Tesoura) *//
+
+const prompt = require('prompt-sync')();
+
+const options = ["Pedra", "Papel", "Tesoura"];
+
+const computerChoice = Math.floor(Math.random() * 3);
+
+const playerChoice = parseInt(prompt(`Escolha uma opcao para se jogar: 
+
+[0] Pedra
+[1] Papel
+[2] Tesoura
+ 
+Digite sua escolha: `));
+
+console.log("JO\n");
+setTimeout(() => {
+    console.log("KEN\n");
+}, 1000);
+setTimeout(() => {
+    console.log("POOH!!!\n");
+}, 2000);
+
+console.log("-=".repeat(20));
+console.log(`O computador escolheu: ${options[computerChoice]}`);
+console.log(`O jogador escolheu: ${options[playerChoice]}`);
+console.log("-=".repeat(20));
+
+if (computerChoice === 0) {
+    if (playerChoice === 0) {
+        console.log("Empate!");
+    } else if (playerChoice === 1) {
+        console.log("Jogador perdeu");
+    } else if (playerChoice === 2) {
+        console.log("Computador venceu");
+    } else {
+        console.log("Operacao invalida");
+    }
+} else if (computerChoice === 1) {
+    if (playerChoice === 0) {
+        console.log("Computador perdeu");
+    } else if (playerChoice === 1) {
+        console.log("Empate!");
+    } else if (playerChoice === 2) {
+        console.log("Jogador venceu");
+    } else {
+        console.log("Operacao invalida");
+    }
+} else if (computerChoice === 2) {
+    if (playerChoice === 0) {
+        console.log("Jogador venceu");
+    } else if (playerChoice === 1) {
+        console.log("Computador venceu");
+    } else if (playerChoice === 2) {
+        console.log("Empate!");
+    } else {
+        console.log("Operacao invalida");
+    }
+} else {
+    console.log("Operacao invalida");
+}
