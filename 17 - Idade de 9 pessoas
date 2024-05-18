@@ -1,0 +1,19 @@
+//* Crie um programa que leia o nomeeaidadede9pessoaseguardeessesvalores em
+ dois vetores, em posições relacionadas. No final, mostre uma listagem contendo apenas
+ os dados daspessoas menores deidade.*//
+
+ const prompt = require('prompt-sync')();
+const nomes = []
+const idades = []
+
+for (let count = 0; count < 9; count++) {
+    nomes.push(prompt(`Digite o nome:`))
+    idades.push(Number(prompt(`Digite a idade:`)))
+}   const menores = []
+    idades.forEach((idade, count) => {
+        if (idade < 18) {
+            menores.push({nome: nomes[count], idade})
+    } 
+})
+
+console.log(menores)
