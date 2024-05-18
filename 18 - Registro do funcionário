@@ -1,0 +1,23 @@
+//*  Crie um registro com o nome do funcionário, cargo e salário. Leia este registro para
+ umfuncionário e ao final escreva o conteúdo do registro. *//
+
+const prompt = require('prompt-sync')();
+function main()  {
+    let nome = "";
+    let cargo = "";
+    let salario = 0.0;
+
+    console.log("Informe o nome do funcionario: ");
+    nome = prompt().trim();
+
+    console.log("Informe o cargo: ");
+    cargo = prompt().trim();
+  
+    console.log("Informe o valor do salario do funcionario: ");
+    salario = parseFloat(prompt());
+
+    console.log("\nNome:" + nome , "Cargo:" + cargo , "Salario:R$", + salario.toFixed(2) + "\n");
+    return 0;
+}   
+
+main();
