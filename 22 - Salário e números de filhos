@@ -1,0 +1,40 @@
+//*  A prefeitura de uma cidade fez uma pesquisa entre os seus habitantes, coletando
+ dados sobre o salário e número de filhos. Faça uma função que leia esses dados para um
+ número não determinado de pessoas e retorne a média de salário da população, a
+média do número de filhos, o maior salário e o percentual de pessoas com salário até R$
+ 350,00. *//
+
+ const prompt = require('prompt-sync')();
+function main() {
+    let num_filhos, num_salarios, num_pessoas, pessoas_salarios_ate_350;
+    let media_salario, media_filhos, salario, maior_salario, porcentagem_salarios_ate_350;
+  
+    num_filhos = 0, num_salarios = 0, num_pessoas = 0, pessoas_salarios_ate_350 = 0;
+    maior_salario = 0.0, media_salario = 0.0, media_filhos = 0.0;
+  
+    while (true) {
+      console.log("Digite o número de filhos e o salário. Digite -1 para numero de filhos quando desejar terminar");
+      num_filhos = parseInt(prompt());
+      if (num_filhos === -1)
+        break;
+      salario = parseFloat(prompt());
+      num_pessoas++;
+      if (salario > maior_salario) maior_salario = salario;
+      if (salario <= 350.0) pessoas_salarios_ate_350++;
+      media_salario += salario;
+      media_filhos += num_filhos;
+    }
+  
+    if (num_pessoas) media_salario = media_salario / num_pessoas;
+    if (num_pessoas) media_filhos = media_filhos / num_pessoas;
+    if (num_pessoas) porcentagem_salarios_ate_350 = (pessoas_salarios_ate_350 / num_pessoas) * 100;
+  
+    console.log(`A media do salario da populacao eh ${media_salario.toFixed(2)}`);
+    console.log(`A media do numero de filhos eh ${media_filhos.toFixed(2)}`);
+    console.log(`O maior salario eh ${maior_salario.toFixed(2)}`);
+    console.log(`O percentual de pessoas com salario ate 350 reais eh de ${porcentagem_salarios_ate_350.toFixed(2)}%`);
+  
+    return 0;
+  }
+  
+  main();
