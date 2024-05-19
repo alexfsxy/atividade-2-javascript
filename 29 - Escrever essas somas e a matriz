@@ -1,0 +1,39 @@
+//* Escreva um algoritmo que leia uma matriz M(5,5) e calcule as somas:
+ a) dalinha 4 de M;
+ b) dacoluna 2 deM;
+ c) dadiagonal principal;
+ d) todos os elementos da matriz M.
+ Escrever essas somas e a matriz. *//
+
+console.log('\n----ESCREVA ESSAS SOMAS E A MATRIZ----\n')
+var matrizM = Array ();
+var soma_Todos = 0;
+var soma_Linha4 = 0;
+var soma_Coluna2 = 0;
+var soma_Diagonal = 0;
+
+for (var i=0 ; i< 5; i++){
+    matrizM[i] = Array();
+    for (var j=0; j < 5; j++){
+        matrizM[i][j] = parseFloat((Math.random()*1).toFixed(0));
+        if (i === 3){
+            soma_Linha4 += matrizM[i][j];
+        }
+
+        else if (j === i){
+            soma_Coluna2 += matrizM[i][j];
+        }
+
+        else if (i === j){
+            soma_Diagonal += matrizM[i][j];
+        }
+        soma_Todos += matrizM[i][j];
+    }
+}
+console.log(`MatrizM:`)
+console.log(matrizM)
+
+console.log(`Soma da linha 4 de M é: ${soma_Linha4}`)
+console.log(`Soma da coluna 2 de M é: ${soma_Coluna2}`)
+console.log(`Soma da diagonal principal é: ${soma_Diagonal}`)
+console.log(`Soma de todos os elementros da Matriz M é: ${soma_Todos}`)
