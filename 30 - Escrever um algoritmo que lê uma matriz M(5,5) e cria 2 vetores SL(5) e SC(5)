@@ -1,0 +1,32 @@
+//* Escrever um algoritmo que lê uma matriz M(5,5) e cria 2 vetores SL(5) e SC(5) que
+ contenham, respectivamente, as somas das linhas e das colunas de M. Escrever a matriz
+ e osvetores criados. *//
+
+ console.log('\n----Escrever um algoritmo que lê uma matriz M(5,5) e cria 2 vetores SL(5) e SC(5)----\n')
+const prompt = require('prompt-sync')();
+function main() {
+    let i, j; 
+    let mat = new Array(5).fill(0).map(() => new Array(5).fill(0)); 
+    let SL = 0, SC = 0;
+  
+    for (i=0; i < 5; i++) {
+      for (j=0; j < 5; j++) {
+        mat[i][j] = parseInt(prompt(`Digite valor para matriz[${i}][${j}]: `));
+      }
+    }
+  
+    for (i=0; i < 5; i++) {
+      for (j=0; j < 5; j++) {
+        SL += mat[4][j]; 
+        SC += mat[i][4]; 
+      }
+    }
+  
+    console.log(`\nsoma linha: ${SL}`);
+    console.log(`soma coluna: ${SC}`);
+  
+    return 0;
+  }
+  
+  main();
+  
