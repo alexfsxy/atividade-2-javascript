@@ -1,16 +1,27 @@
 //* Criar e imprimir a matriz identidade MI[1.7,1.7] em que todos os elementos da
  diagonal principal são iguais a 1 e os demais são nulos.*//
 
- const matrizIdentidade = Array();
-
-for (let i=0 ; i < 2; i++){
-    matrizIdentidade[i] = Array(); 
-    for (let j=0 ; j < 7; j++){
-        if (j !== 0){
-        matrizIdentidade[i][j] = 0;
-        } else {        
-            matrizIdentidade[i][j] = 1;
-        }
+function criandoMatrizIdentidade(ordem) {
+    const matriz = new Array(ordem);
+    for (var i = 0; i < ordem; i++) {
+        matriz[i] = new Array(ordem).fill(0);
+        matriz[i][i] = 1;
     }
+    return matriz;
 }
-console.log(matrizIdentidade)
+
+function atualizandoMatriz(matriz) {
+    var matrizFormatada = "";
+    for (var i = 0; i < matriz.length; i++) {
+        for (var j = 0; j < matriz[i].length; j++) {
+            matrizFormatada += `${matriz[i][j]} `;
+        }
+        matrizFormatada += ['\n'];
+    }
+    return matrizFormatada;
+}
+
+const ordem = 7;
+const matrizIdentidade = criandoMatrizIdentidade(ordem);
+console.log(atualizandoMatriz(matrizIdentidade))
+  
