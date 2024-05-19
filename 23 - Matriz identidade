@@ -1,0 +1,16 @@
+//* Criar e imprimir a matriz identidade MI[1.7,1.7] em que todos os elementos da
+ diagonal principal são iguais a 1 e os demais são nulos.*//
+
+ const matrizIdentidade = Array();
+
+for (let i=0 ; i < 2; i++){
+    matrizIdentidade[i] = Array(); 
+    for (let j=0 ; j < 7; j++){
+        if (j !== 0){
+        matrizIdentidade[i][j] = 0;
+        } else {        
+            matrizIdentidade[i][j] = 1;
+        }
+    }
+}
+console.log(matrizIdentidade)
