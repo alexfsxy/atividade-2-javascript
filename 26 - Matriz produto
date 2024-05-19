@@ -1,0 +1,25 @@
+//*  Dadas duas matrizes numéricas A[1.3,1.5] e B[1.3,1.5], calcular a matriz produto
+ P[1 .3,1 .5]. *//
+
+ var matrizA = Array();
+var matrizB = Array();
+var matrizP = Array();
+for (var i=0; i < 2; i++){
+    matrizA[i] = Array();
+    matrizB[i] = Array();
+    matrizP[i] = Array();
+    for (var j=0; j < 5; j++){
+        if (i === 0 && j === 3){
+            break;
+        }
+        matrizA[i][j] = parseInt((Math.random()*5).toFixed(0));
+        matrizB[i][j] = parseInt((Math.random()*5).toFixed(0));
+        matrizP[i][j] = matrizA[i][j] * matrizB[i][j];
+    }
+}
+console.log("Matriz A")
+console.log(matrizA)
+console.log("Matriz B")
+console.log(matrizB)
+console.log("Matriz P = matriz A x matriz B")
+console.log(matrizP)
