@@ -10,7 +10,7 @@ for (var i=0; i < 2; i++){
         if (i === 0 && j === 6){
             break;
         }
-        matrizM[i][j] = parseInt((Math.random()*5).toFixed(0));
+        matrizM[i][j] = parseFloat((Math.random()*5).toFixed(0));
         vetorC[i][j] = matrizM[i][j] * -1; 
     }
 }
