@@ -1,0 +1,28 @@
+//*  Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada
+ no seguinte: existe uma tabela com os dados de cada funcionalidade: matrícula, nome e
+ salário bruto. Escreva um programa que leia e processe a tabela e emita (escreva na
+ tela), cada funcionário, seu contracheque, cujo formato é dado a seguir:
+ Matrícula:
+ Nome:
+ Salário bruto:
+ Dedução INSS:
+ Salário líquido:
+ (Dicas: desconto de 12%, salário líquido é a diferença entre salário bruto e a redução do
+ INSS) *//
+
+ const prompt = require('prompt-sync')();{
+
+    let pagamento = {
+        matricula: 0,
+        nome: '',
+        salarioBruto: 0,
+}
+pagamento.matricula = Number(prompt('Digite a matrícula do funcionário: '));
+pagamento.nome = prompt('Digite o nome deste funcionário: ');
+pagamento.salarioBruto = Number(prompt('Digite o salário bruto deste funcionario: '));
+
+pagamento.INSS = pagamento.salarioBruto * 0.12
+pagamento.salarioLiquido = pagamento.salarioBruto - pagamento.INSS
+
+console.log(pagamento)
+}
