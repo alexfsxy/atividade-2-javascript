@@ -1,0 +1,15 @@
+//* Escrever um programa para ler 5 horários. Validar cada horário fornecendo através de
+ repetição. Escrever cada um deles no formato HH.MM.SS. *//
+
+const prompt = require('prompt-sync')();
+const horarios = [];
+
+console.log('Informe 5 horários: '); 
+for (let i = 0; i < 5; i++) { 
+    const hora = Number(prompt('Informe a hora (0 - 23): '));
+    const minutos = Number(prompt('Informe o minuto (0 - 59): '));
+    const segundos = Number(prompt('Informe o segundo (0 - 59): '));
+
+ horarios.push(`${hora}.${minutos}.${segundos}`)
+}
+console.log(horarios)
