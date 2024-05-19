@@ -1,0 +1,25 @@
+//*  Fazer um algoritmo para receber uma matriz 10 x 10 e devolver o resultado pedido no
+ item:
+ a) asomadoselementosacimadadiagonalprincipal;
+ b) asomadoselementosabaixo dadiagonal principal; *//
+
+var matriz = Array ();
+var primeiraSoma = 0;
+var segundaSoma = 0;
+for (var i=0; i < 10; i++){
+    matriz[i] = Array();
+    for (var j=0; j < 10; j++){
+        matriz[i][j] = parseFloat((Math.random()*1).toFixed(0));
+        if (i !== j){
+            if (i < j){
+                primeiraSoma += matriz[i][j];
+            } else {
+                segundaSoma += matriz[i][j];
+            }
+        }
+    }
+}
+console.log(`Matriz:`)
+console.log(matriz)
+console.log(`Soma dos elementos acima da diagonal principal igual: ${primeiraSoma}`)
+console.log(`Soma dos elementos abaixo da diagonal principal igual: ${segundaSoma}`)
