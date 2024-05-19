@@ -1,0 +1,17 @@
+//* Faça um algoritmo que leia uma matriz de 15 X 20denúmerosreais e mostre a soma
+ de cadacoluna separadamente. *//
+
+ var matriz = Array();
+var arraySoma = new Array();
+for (var i=0; i < 15; i++){
+    matriz[i] = Array();
+    arraySoma[i]=parseInt(0);
+    for (var j=0; j < 20; j++){
+        matriz[i][j] = parseFloat((Math.random()*5).toFixed(0));
+        arraySoma[i] += matriz[i][j];
+    }
+}
+console.log("Matriz eh")
+console.log(matriz)
+console.log("ArraySoma eh")
+console.log(arraySoma)
