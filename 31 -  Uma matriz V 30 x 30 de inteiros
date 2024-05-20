@@ -1,0 +1,48 @@
+//*  Escreva um algoritmo que leia um número inteiro A e uma matriz V 30 x 30 de inteiros.
+ Conte quantos valores iguais a A estão na matriz. Crie, a seguir, uma matriz X contendo
+ todos os elementos de V diferentes de A. Mostre os resultados. *//
+
+ console.log('\n----Uma matriz V 30 x 30 de inteiros----\n')
+const prompt = require('prompt-sync')();
+let vet = [];
+for (let i = 0; i < 30; i++) {
+    vet.push(prompt('Número:'));
+}
+console.log(vet);
+
+let x = prompt('Buscar número de exemplo:');
+let cont = 0;
+for (let i = 0; i < 30; i++) {
+    if (vet[i] == x) {
+        cont = cont + 1;
+    }
+}
+console.log('Quantidade de vezes que o número', x, 'aparece:', cont)
+
+const recebe = require('prompt-sync')();
+let matrizV = Array ();
+let matrizX = Array ();
+let contA = 0;
+let A = recebe("Digite um número valor inteiro A: ");
+if ((!isNaN(A)) || (A === !undefined)){
+    for (let i=0; i < 30; i++){
+        matrizV[i] = Array();
+        matrizX[i] = Array();
+        for (let j=0; j < 30; j++){
+            matrizV[i][j] = parseFloat((Math.random()*5).toFixed(0));
+            if (matrizV[i][j] == A){
+                contA++;
+                matrizX[i][j] = (matrizV[i][j] + 1); 
+            } else {
+                matrizX[i][j] = matrizV[i][j];
+            }
+        }
+    }
+console.log(`Matriz valor V:`)
+console.log(matrizV)
+console.log(`Temos ${contA} números iguais ao valor A(${A}), que estão na matrizV `)
+console.log(`Matriz valor X (retirado somente números iguais ao valor inteiro A):`)
+console.log(matrizX)
+} else {
+    console.log("Digite número válido, programa concluído!")
+}
