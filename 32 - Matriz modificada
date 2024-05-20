@@ -1,0 +1,31 @@
+//* Escrever um algoritmo que lê uma matriz M(12,13) e divida todos os 13 elementos de
+ cada uma das 12 linhas de M pelo maior elemento em módulo daquela linha. Escrever a
+ matriz lida e a modificada. *//
+
+ console.log('\n----Matriz modificada----\n')
+var matriz_M = Array ();
+var maior = 0;
+var matriz_Modificada = Array ();
+
+for (var i=0; i < 12; i++){
+    matriz_M[i] = Array();
+    matriz_Modificada[i] = Array ();
+    for (var j=0; j < 13; j++){
+        matriz_M[i][j] = parseFloat((Math.random()*5).toFixed(0));
+        if (j === 0){
+            maior = matriz_M[i][j];
+        } 
+        
+        else if (maior < matriz_M[i][j]) {
+            maior = matriz_M[i][j];
+        }
+    }
+    for (var j=0; j < 13; j++){
+        matriz_Modificada[i][j] = (matriz_M[i][j]/ (maior* -1)).toFixed(2);
+    }
+}
+console.log(`Matriz M:`)
+console.log(matriz_M)
+console.log(" ")
+console.log(`matriz modificada pelo módulo |${maior}|:`)
+console.log(matriz_Modificada)
