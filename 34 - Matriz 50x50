@@ -3,7 +3,7 @@
  multiplicações. *//
 
  console.log('\n----Matriz 50x50----\n')
-let mat = Array();
+let mat = Array;
 let multiplicada = Array;
 for (let i = 0; i < 50; i++) {
     mat[i]= Array();
