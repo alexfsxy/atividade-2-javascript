@@ -1,0 +1,23 @@
+//* Faça umalgoritmo que leia uma matriz 50 x 50 de números reais. A seguir, multiplique
+ cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as
+ multiplicações. *//
+
+ console.log('\n----Matriz 50x50----\n')
+let mat = Array();
+let multiplicada = Array;
+for (let i = 0; i < 50; i++) {
+    mat[i]= Array();
+    multiplicada[i]= Array();
+    for (let j = 0; j < 50; j++) {
+        mat[i][j] = parseInt((Math.random()*5).toFixed(1));
+        multiplicada[i][j] = mat[i][j];  
+    }
+}
+for (let i = 0; i < 50; i++) 
+    for (let j = 0; j < 50; j++) 
+        multiplicada[i][j] = parseInt((mat[i][j] * mat[i][i]).toFixed(1));
+
+console.log(`Matriz:`)
+console.log(mat)
+console.log(`Multiplicada:`)
+console.log(multiplicada)
