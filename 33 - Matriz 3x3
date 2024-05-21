@@ -1,0 +1,29 @@
+//* Faça um algoritmo que leia uma matriz 3 x 3 e após a leitura, multiplique os
+ elementos da diagonal principal com a média dos elementos da diagonal secundária. *//
+
+ console.log('\n----Matriz 3x3----\n')
+const prompt = require('prompt-sync')();
+
+let mat = [];
+let soma = 0;
+let soma2 = 0;
+for (let i = 0; i < 3; i++) {
+    mat.push(0);
+    mat[i] = [];
+    for (let j = 0; j < 3; j++) {
+        mat[i].push(prompt('Numero: '));
+    }
+}
+for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+        if (i === j) {
+            soma = soma + parseInt(mat[i][i]);
+            soma2 = soma2 + parseInt(mat[i][3 - i - 1]);
+        }
+    }
+}
+for (let line of mat) {
+    console.log(line);
+}
+console.log('Soma da diagonal principal:', soma)
+console.log('Soma da diagonal secundaria:', soma2)
