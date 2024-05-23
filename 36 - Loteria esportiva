@@ -1,0 +1,37 @@
+//*  Escreva um algoritmo que leia um vetor de 13 elementos inteiros, que é o Gabarito de
+ um teste daloteria esportiva. Leia, a seguir, para cada um dos 100 apostadores, o número
+ do seu cartão e um vetor de Respostas de 13 posições. Verifique para cada apostador o
+ número de acertos, comparando o vetor de Gabarito com o vetor de Respostas. Escreva
+ o número do apostador e onúmerodeacertos.Seoapostadortiver 13 acertos, mostrar a
+ mensagem"Parabéns, tu foi o GANHADOR". *//
+
+ console.log('\n---- Loteria esportiva ----\n')
+const prompt = require('prompt-sync')();
+let gabarito = [], resposta = [], cartao, acertos = 0;
+for (let i = 0; i < 13; i++) {
+  console.log(`Digite o valor numero #${i} para o gabarito`);
+  gabarito[i] = Number(prompt());
+}
+for (let i = 0; i < 100; i++) {
+  console.log("Digite o numero do cartao:");
+  cartao = Number(prompt());
+  for (let j = 0; j < 13; j++) {
+    console.log(`Digite o valor numero #${j}`);
+    resposta[j] = Number(prompt());
+  }
+  acertos = 0;
+  for (let i = 0; i < 13; i++) {
+    for (let j = 0; j < 13; j++) {
+      if (gabarito[i] === resposta[j]) {
+        acertos++;
+      }
+    }
+  }
+  if (acertos === 13) {
+    console.log("GANHADOR!!!");
+    acertos = 0;
+  } else {
+    console.log(`O cartao #${cartao} obteve ${acertos} acertos`);
+    acertos = 0;
+  }
+}
