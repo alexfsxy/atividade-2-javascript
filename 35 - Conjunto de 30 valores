@@ -1,0 +1,72 @@
+//* Elaborar um algoritmo que leia um conjunto de 30 valores e os coloca em 2 vetores
+ conforme forem pares ou ímpares. O tamanho do vetor é de 5 posições. Se algum vetor
+ estiver cheio, escrevê-lo. Terminada a leitura, escrever o conteúdo dos dois vetores. Cada
+ vetor pode ser preenchido quantas vezes forem necessárias. *//
+
+console.log('\n----Conjunto de 30 valores----\n')
+const prompt = require('prompt-sync')();
+let x, pares = new Array(5), impares = new Array(5), countP = 0, countI = 0;
+for (let i = 0; i < 30; i++) {
+  console.log("Digite um valor:");
+  x = parseInt(prompt());
+    if (x % 2 === 0) {
+    if (countP < 5) {
+      pares[countP] = x;
+      countP++;
+    } else {
+      countP = 0;
+      pares[countP] = x;
+      countP++;
+    }
+  } else {
+    if (countI < 5) {
+      impares[countI] = x;
+      countI++;
+    } else {
+      countI = 0;
+      impares[countI] = x;
+      countI++;
+    }
+  }
+}
+console.log("Pares:");
+for (let i = 0; i < 5; i++) {
+  console.log(pares[i]);
+}
+console.log("Impares:");
+for (let i = 0; i < 5; i++) {
+  console.log(impares[i]);
+}
+
+*// Outro exemplo *//
+
+let conjunto = Array (30);
+let vetorPar = Array (5);
+let contPar = 0;
+let vetorImpar = Array (5);
+let contImpar = 0;
+
+for (let i=0;i<30;i++){
+    conjunto[i] = parseInt((Math.random()*5).toFixed(0));
+    if (conjunto[i]%2 === 0){
+        vetorPar[contPar] = conjunto[i];
+        if (contPar < 5){
+            contPar++;
+        } else {
+            contPar = 0;
+        }    } else {
+        vetorImpar[contImpar] = conjunto[i];
+        if (contImpar < 5){
+            contImpar++;
+        } else {
+            contImpar = 0;
+        }
+    }
+}
+
+console.log(`Conjunto:`);
+console.log(conjunto);
+console.log(`VetorPar:`);
+console.log(vetorPar);
+console.log(`VetorImpar:`);
+console.log(vetorImpar);
