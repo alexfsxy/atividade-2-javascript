@@ -1,0 +1,19 @@
+//* Faça um algoritmo que leia um vetor (A) de 100 posições. Em seguida, compacte o
+ vetor, retirando os valores nulos e negativos. Coloque o resultado no vetor B. *//
+
+ console.log('\n----Vetor(A)de 100 posições----\n')
+let vetA = new Array(100);
+let vetB =  new Array().fill();
+let countB = 0;
+
+for (let i = 0; i < 100; i++) {
+  vetA[i] = parseFloat(Math.floor(Math.random()*(-10 - 10 + 1)+10).toFixed(0));
+  if (vetA[i] > 0) {
+    vetB[countB] = vetA[i];
+    countB++;
+}
+}
+  console.log("Vetor A: ")
+  console.log(vetA)
+  console.log("Vetor B: ")
+  console.log(vetB)
