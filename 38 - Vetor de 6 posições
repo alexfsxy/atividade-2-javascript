@@ -1,0 +1,68 @@
+//*  Elabore um algoritmo que leia um vetor de 6 posições e após sua leitura leia outra
+ variável identificadora que calcule a operação conforme a informação contida nesta
+ variável:
+ 1- somadoselementos;
+ 2- produto dos elementos;
+ 3- média doselementos;
+ 4- ordene os elementos em ordemcrescente;
+ 5- mostre o vetor. *//
+
+console.log('\n----Vetor de 6 posições----\n')
+const prompt = require('prompt-sync')();
+console.log("int vet[6], num;");
+
+let vet = Array (6);
+let somaVet = 0;
+let produtoElementos = 1;	
+for (let i = 0; i < 6; i++){
+	console.log("Digite um valor pro vetor ");
+	vet[i] =  parseInt(prompt());
+}
+
+
+for (let i = 0; i < 6; i++)
+	somaVet += vet[i];{
+	console.log(`soma dos elementos: ${somaVet}`);
+}
+
+for (let i = 0; i < 6 + 1; i++){
+	console.log(`produto dos elementos: ${produtoElementos}`)
+  produtoElementos *= vet[i];
+}
+
+{let somaVet = 0;
+for (let i = 0; i < 6; i++){
+	somaVet += vet[i];
+}
+console.log(`média dos elementos: ${(somaVet/vet.length).toFixed(2)}`);
+let temp;
+for (let i = 0; i < 6; i++){
+	for(let j = 0; j < 6; j++){
+		if (vet[j] > vet[j + 1]) {
+			temp = vet[j];
+			vet[j] = vet[j + 1];
+			vet[j + 1] = temp;
+		}			
+	}
+}
+for (let i = 0; i < 6; i++){
+	console.log("Vetor posicao " + i + ", valor " + vet[i]);
+}
+}
+
+//*Outro exemplo mas automático a geração de números *//
+
+let vetor = Array (6);
+let somaElementos = 0;
+let produtoElementos = 1;
+let vetorOrdenado = Array (6);
+for (let i=0;i<6;i++){
+    vetor[i] = parseInt((Math.random()*6).toFixed(0));
+    somaElementos += vetor[i];
+    produtoElementos *= vetor[i];
+} 
+console.log(`soma dos elementos: ${somaElementos}`);
+console.log(`produto dos elementos: ${produtoElementos}`);
+console.log(`média dos elementos: ${(somaElementos/vetor.length).toFixed(2)}`);
+console.log(`mostre o vetor: ${vetor}`);
+console.log(`ordene os elementos em ordem crescente: ${vetor.sort(function(a,b) { return a - b})}`);
