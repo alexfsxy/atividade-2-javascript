@@ -1,0 +1,48 @@
+//*  Faça um algoritmo que leia um vetor de 5 elementos inteiros, correspondentes ao
+ resultado oficial da Loto. A seguir, leia 50 conjuntos de vetores (com 5 elementos inteiros
+ cada), representando as apostas feitas. Compare os números das apostas com o
+ resultado oficial e mostre uma mensagem ("Ganhador") se todos os números
+ corresponderem ao resultado oficial. (Observação: não é necessário procurar por ternos
+ e quadras, apenas por quinas.) *//
+
+ console.log('\n---- LOTERIA----\n')
+let  result = new Array(5);
+let jogo = new Array(5);
+let resultOficialLoteria = [ 1, 2, 3, 4, 5];
+let apostas = Array;
+let pesquisa = 0;
+let countAcertos = 0;
+resultOficialLoteria.sort(function(a,b){ return a - b});
+console.log(`Os números sorteados são: ${resultOficialLoteria}`);
+for (let i = 0; i < 50; i++){
+    apostas[i] = Array ();
+    for (let j = 0; j < 5; j++){
+        while (true){
+            if (j === 0){
+                pesquisa = parseFloat((Math.random()*7).toFixed(0));
+                apostas[i][j] = pesquisa+1;
+                break;
+            } else {
+                pesquisa = parseFloat((Math.random()*7).toFixed(0));
+                if (apostas[i].indexOf(pesquisa+1) === -1){
+                    apostas[i][j] = pesquisa+1;
+                    break; 
+                } 
+              }  
+            }
+          }
+    apostas[i].sort(function(a,b) { return a - b});
+    let countAcertos = 0;
+    for (let j = 0; j < 5; j++){
+        if ((resultOficialLoteria[j] === apostas[i][j])){
+            countAcertos++
+        } else {
+            break;
+        }
+        if (countAcertos === 5){
+            console.log(`O apostador de número ${i} GANHADOR!!`);
+        }
+      } 
+    }
+console.log("Todas as apostas logo abaixo:")
+console.log(apostas)
