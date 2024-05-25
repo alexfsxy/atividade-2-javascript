@@ -6,6 +6,6 @@
     nome: "Alexsandro Ferreira",
     idade: "36"
 }
-console.log(pessoa.idade)
+console.log(pessoa)
 pessoa_email = "alexsandroferreira@igmail.com.br";
 console.log(pessoa_email)
