@@ -2,7 +2,8 @@
  idade. Adicione uma nova propriedade chamada email ao objeto pessoa que já possui
  nome e idade.*//
 
- const pessoa = { 
+console.log('\n----Nome Idade Email----\n')
+const pessoa = { 
     nome: "Alexsandro Ferreira",
     idade: "36"
 }
