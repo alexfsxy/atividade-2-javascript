@@ -1,0 +1,22 @@
+//*  Escreva uma função que conte quantas propriedades do tipo string existem em um
+ objeto e retorne esse número. *//
+
+  console.log('\n----Propriedade do tipo sting----\n')
+  const objeto = {
+    nome: "Eduardo",
+    idade: 18,
+    cidade: "Brasília",
+    estado: "Distrito Federal",
+    lazer: ["esporte", "música", "viagem"],
+    salario: 1600,
+    cargo: "Engenheiro",
+     }
+     let count = 0
+    for (let i in objeto) {
+    if (typeof objeto[i] === "string") {
+      count++
+    }
+  }
+    console.log(`Objeto`)
+    console.group(objeto)
+    console.log(`Total em número de propriedades do tipo string: ${count}`)
