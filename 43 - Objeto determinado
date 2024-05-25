@@ -1,0 +1,28 @@
+//*  Dado dois objetos, obj1 e obj2, escreva uma função que crie um novo objeto
+ combinando as propriedades de ambos, onde as propriedades de obj2 têm precedência
+ sobre as do obj1 em caso de conflitos. *//
+
+ console.log('\n----Objeto Determinado----\n')
+const objeto_1 = {
+    nome: "Eduardo",
+    idade: 18,
+    cidade: "Brasília",
+    lazer: ["esporte", "música", "viagem"],
+    salario: 1600,
+  }
+    const objeto_2 = {
+    nome: "Mônica",
+    cidade: "Rio de Janeiro",
+    lazer: ["pintura", "música"],
+    profissao: "Medicina",
+  }
+    function novoObjeto(objeto_1, objeto_2) {
+    return { ...objeto_1, ...objeto_2 }
+  }
+  const objeto_3 = novoObjeto(objeto_1, objeto_2)
+  console.log("Objeto 1")
+  console.group(objeto_1)
+  console.log("Objeto 2")
+  console.group(objeto_2)
+  console.log("Objeto determinado")
+  console.group(objeto_3)
