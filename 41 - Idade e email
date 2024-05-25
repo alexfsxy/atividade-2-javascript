@@ -1,0 +1,11 @@
+//* Dado o objeto pessoa com propriedades nome e idade, acesse e imprima ovalor de
+ idade. Adicione uma nova propriedade chamada email ao objeto pessoa que já possui
+ nome e idade.*//
+
+ const pessoa = { 
+    nome: "Alexsandro Ferreira",
+    idade: "36"
+}
+console.log(pessoa.idade)
+pessoa_email = "alexsandroferreira@igmail.com.br";
+console.log(pessoa_email)
