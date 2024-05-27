@@ -1,5 +1,5 @@
 //* Dado um array destrings, crie um objeto onde cada string é uma chave, e seu valor é
- o númerodevezesqueastring aparece no array.*//
+ o número de vezes que astring aparece no array.*//
 
  console.log('\n----Lista de times campeões da Copa do  Brasil----\n')
 const randomStrings = [
