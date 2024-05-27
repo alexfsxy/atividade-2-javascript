@@ -1,0 +1,52 @@
+//* Dado um array destrings, crie um objeto onde cada string é uma chave, e seu valor é
+ o númerodevezesqueastring aparece no array.*//
+
+ console.log('\n----Lista de times campeões da Copa do  Brasil----\n')
+const randomStrings = [
+    "cruzeiro",
+    "grêmio",
+    "flamengo",
+    "palmeiras",
+    "corinthians",
+    "atlético-mg",
+    "são paulo",
+    "fluminense",
+    "internacional",
+    "athletico-pr",
+    "vasco",
+    "santos",
+    "sport",
+    "criciúma",
+    "juventude",
+    "santo andré",
+    "paulista",
+    "cruzeiro",
+    "grêmio",
+    "flamengo",
+    "palmeiras",
+    "corinthians",
+    "atlético-mg",
+    "cruzeiro",
+    "grêmio",
+    "flamengo",
+    "palmeiras",
+    "corinthians",
+    "cruzeiro",
+    "grêmio",
+    "flamengo",
+    "palmeiras",
+    "cruzeiro",
+    "grêmio",
+    "cruzeiro",
+  ]
+    const object = {}
+    randomStrings.forEach((string) => {
+    if (object[string]) {
+      object[string]++
+    } else {
+      object[string] = 1
+    }
+  })
+    console.log("Lista de times campeões da Copa do Brasil")
+    console.table(object)
+    console.log()
