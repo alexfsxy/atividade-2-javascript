@@ -1,0 +1,46 @@
+//* Suponha que você tem um array de objetos onde cada objeto representa uma venda
+ com vendedor e valor. Escreva uma função que retorne um objeto que sumarize o total
+ de vendas por vendedor. *//
+
+ console.log('\n----Uma vendas com vendedor e o valor----\n')
+ const vendas = [
+    { vendedor: "Alan", valor: 250 },
+    { vendedor: "Nicole", valor: 500 },
+    { vendedor: "Jonh", valor: 750 },
+    { vendedor: "Aline", valor: 1000 },
+    { vendedor: "Alice", valor: 1200 },
+    { vendedor: "Paulo", valor: 1300 },
+    { vendedor: "Alan", valor: 1100 },
+    { vendedor: "Nicole", valor: 950 },
+    { vendedor: "Jonh", valor: 800 },
+    { vendedor: "Aline", valor: 1100 },
+    { vendedor: "Alice", valor: 1200 },
+    { vendedor: "Paulo", valor: 1300 },
+    { vendedor: "Alan", valor: 1250 },
+    { vendedor: "Nicole", valor: 1050 },
+    { vendedor: "Jonh", valor: 1150 },
+    { vendedor: "Aline", valor: 1350 },
+    { vendedor: "Alice", valor: 900 },
+    { vendedor: "Paulo", valor: 1100 },
+    { vendedor: "Alan", valor: 1200 },
+    { vendedor: "Nicole", valor: 1250 },
+    { vendedor: "Jonh", valor: 1300 },
+    { vendedor: "Aline", valor: 1100 },
+    { vendedor: "Alice", valor: 1400 },
+    { vendedor: "Paulo", valor: 1350 },
+  ]
+    function valorPorVendas(vendas) {
+    const objeto = {}
+    vendas.forEach(({ vendedor, valor }) => {
+      if (objeto[vendedor]) {
+        objeto[vendedor] += valor
+      } else {
+        objeto[vendedor] = valor
+      }
+    })
+    return objeto
+  }
+    const resultado = valorPorVendas(vendas)
+    console.log()
+    console.log("Uma vendas com vendedor e o valor")
+    console.table(resultado)
