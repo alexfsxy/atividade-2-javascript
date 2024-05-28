@@ -1,0 +1,34 @@
+//*  Crie uma função que transforme um objeto de entrada aplicando uma função
+ fornecida a cada uma das propriedades do objeto, retornando um novo objeto com os
+ resultados. *//
+
+ console.log('\n----Objeto em dobro de um valor no resultado----\n')
+const vendas = {
+    valor1: 100,
+    valor2: 250,
+    valor3: 360,
+    valor4: 480,
+    valor5: 512,
+    valor6: 664,
+    valor7: 778,
+    valor8: 848,
+    valor9: 950,
+    valor10: 1000,
+    valor11: 1150,
+    valor12: 1200,
+  }
+const multiplicadoPorDois = (valor) => valor * 2
+function objetoAlterado(objeto, voltando) {
+    const j = { ...objeto }
+for  (let i in j) {
+      j[i] = voltando(j[i])
+    }
+    return j
+  }
+    const novoObjeto = objetoAlterado(vendas, multiplicadoPorDois)
+    console.log()
+    console.log("Objeto com valor simples")
+    console.table(vendas)
+    console.log("Objeto com valor em dobro")
+    console.table(novoObjeto)
+    console.log()
