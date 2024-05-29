@@ -1,0 +1,68 @@
+//*  Você recebe dois objetos que representam o inventário de duas lojas diferentes:
+ inventarioLojaA e inventarioLojaB. Cada chave é um item, e o valor é a quantidade desse
+ item em estoque. Escreva uma função que combine os inventários em um único objeto.
+ Se um item aparecer em ambas aslojas, some as quantidades. *//
+
+ const inventarioLojaA_esportiva = {
+    "camiseta do Brasil": 100,
+    "(marca da camiseta do Brasil)": ["nike "],
+    "camiseta da Alemanha": 50,
+    "(marca da Alemanha)": ["adidas "], 
+    "camiseta da Itália": 120,  
+    "(marca da camiseta da Itália)": ["adidas "],
+    "camiseta da Argentina": 110,
+    "(marca da camiseta da Argentina)": ["adidas "],
+    "camiseta da França": 120,
+    "(marca da camiseta da França)": ["adidas "],
+    "camiseta do Uruguai": 40,
+    "(marca da camiseta do Uruguai)": ["puma "],
+    "camiseta da Espanha": 90,
+    "(marca da camiseta da Espanha)": ["adidas "],
+    "camiseta da Inglaterra": 70,
+    "(marca da camiseta da Inglaterra)": ["nike "],
+    "camiseta do Portugal": 80,
+    "(marca da camiseta do Portugal)": ["nike "],
+    "camiseta da Holanda": 60,
+    "(marca da camiseta da Holanda)": ["nike "],
+  }
+const inventarioLojaB_esportiva = {
+    "camiseta do Brasil": 140,
+    "(marca da camiseta do Brasil)": ["nike"],
+    "camiseta da Alemanha": 130,
+    "(marca da Alemanha)": ["adidas"], 
+    "camiseta da Itália": 120,  
+    "(marca da camiseta da Itália)": ["adidas"],
+    "camiseta da Argentina": 110,
+    "(marca da camiseta da Argentina)": ["adidas"],
+    "camiseta da França": 100,
+    "(marca da camiseta da França)": ["adidas"],
+    "camiseta do Uruguai": 90,
+    "(marca da camiseta do Uruguai)": ["puma"],
+    "camiseta da Espanha": 80,
+    "(marca da camiseta da Espanha)": ["adidas"],
+    "camiseta da Inglaterra": 70,
+    "(marca da camiseta da Inglaterra)": ["nike"],
+    "camiseta do Portugal": 60,
+    "(marca da camiseta do Portugal)": ["nike"],
+    "camiseta da Holanda": 50,
+    "(marca da camiseta da Holanda)": ["nike"],
+  }
+    function combinado(objetoArray) {
+    const objeto = { ...inventarioLojaA_esportiva}
+        for (const i in inventarioLojaB_esportiva) {
+        if (objeto[i]) {
+        objeto[i] += inventarioLojaB_esportiva[i]
+      } else {
+        objeto[i] = inventarioLojaB_esportiva[i]
+      }  
+}
+    return objeto
+  }
+  const combinadoObjetos = combinado(inventarioLojaA_esportiva, inventarioLojaB_esportiva)
+  console.log()
+  console.log("Inventário da loja A esportiva")
+  console.table(inventarioLojaA_esportiva)
+  console.log("Inventário da loja B esportiva")
+  console.table(inventarioLojaB_esportiva)
+  console.log("Inventário combinado")
+  console.table(combinadoObjetos)
