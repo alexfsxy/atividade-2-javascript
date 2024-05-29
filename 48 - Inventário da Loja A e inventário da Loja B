@@ -3,6 +3,7 @@
  item em estoque. Escreva uma função que combine os inventários em um único objeto.
  Se um item aparecer em ambas aslojas, some as quantidades. *//
 
+console.log('\n---- Inventário Loja A e Inventário Loja B----\n')
  const inventarioLojaA_esportiva = {
     "camiseta do Brasil": 100,
     "(marca da camiseta do Brasil)": ["nike "],
