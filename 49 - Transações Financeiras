@@ -1,0 +1,121 @@
+//* Você recebe um array de objetos representando transações financeiras. Cada
+ transação possui id, valor, data, e categoria. Escreva uma função que retorne um objeto
+ onde as chaves são as categorias, e os valores são arrays de transações pertencentes a
+ essa categoria. Adicionalmente, inclua um subtotal de valores por categoria.*//
+
+console.log('\n---- Trasações Financeiras ----\n')
+const transacoesFinanceiras = [
+    {
+      id: 1,
+      valor: 100.0,
+      data: "2024-04-06",
+      categoria: "Mercado",
+    },
+    {
+      id: 2,
+      valor: 40.00,
+      data: "2024-04-07",
+      categoria: "Almoço",
+    },
+    {
+      id: 3,
+      valor: 60.0,
+      data: "2024-04-07",
+      categoria: "Diversão",
+    },
+    {
+      id: 4,
+      valor: 80.0,
+      data: "2024-04-08",
+      categoria: "Deslocamento",
+    },
+    {
+      id: 5,
+      valor: 150.0,
+      data: "2024-04-13",
+      categoria: "Mercado",
+    },
+    {
+      id: 6,
+      valor: 50.0,
+      data: "2024-04-13",
+      categoria: "Deslocamento",
+    },
+    {
+      id: 7,
+      valor: 20.0,
+      data: "2024-04-13",
+      categoria: "Almoço",
+    },
+    {
+      id: 8,
+      valor: 80.0,
+      data: "2024-04-14",
+      categoria: "Diversão",
+    },
+    {
+      id: 9,
+      valor: 70.0,
+      data: "2024-04-19",
+      categoria: "Deslocamento",
+    },
+    {
+      id: 10,
+      valor: 40.0,
+      data: "2024-04-20",
+      categoria: "Almoço",
+    },
+    {
+      id: 11,
+      valor: 120.0,
+      data: "2024-04-20",
+      categoria: "Diversão",
+    },
+    {
+      id: 12,
+      valor: 140.0,
+      data: "2024-04-21",
+      categoria: "Mercado",
+    },
+    {
+      id: 13,
+      valor: 60.0,
+      data: "2024-04-26",
+      categoria: "Almoço",
+    },
+    {
+      id: 14,
+      valor: 100.0,
+      data: "2024-04-26",
+      categoria: "Mercado",
+    },
+    {
+      id: 15,
+      valor: 50.0,
+      data: "2024-04-27",
+      categoria: "Deslocamento",
+    },
+    {
+      id: 16,
+      valor: 80.0,
+      data: "2024-04-28",
+      categoria: "Diversão",
+    },
+  ]
+   function gastosFinanceiros(objetoArray) {
+    const objeto = {}
+    objetoArray.forEach(({ categoria, valor }) => {
+      if (objeto[categoria]) {
+        objeto[categoria] = [...objeto[categoria], valor]
+        objeto[`SubtotaldeValores_${categoria}`] += valor  
+      } else {
+        objeto[categoria] = [valor]
+        objeto[`SubtotaldeValores_${categoria}`] = valor
+      }
+    })
+    return objeto
+  }
+  const operacaoFinancas = gastosFinanceiros(transacoesFinanceiras)
+  console.log("Transações Financeiras")
+  console.table(operacaoFinancas)
+  console.log()
