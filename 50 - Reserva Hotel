@@ -1,0 +1,171 @@
+//*   Desenvolva um pequeno sistema de reserva de hotéis usando JavaScript. O sistema deverá ser capaz de interagir com o usuário através do console do navegador e manter
+ um registro das reservas e hotéis disponíveis. Utilize objetos e arrays para gerenciar as informações. Não é necessário interface gráfica, apenas funcionalidade lógica.
+ 1. EstruturadeDados:
+ ○ Hotel:Cadahotel deve ser umobjeto compropriedades para id, nome, cidade, quartos totais e quartos disponiveis.
+ ○ Reservas:Cadareserva deve ser umobjeto contendo idReserva, idHotel, e nomeCliente.
+ 2. Funcionalidades:
+ ○ Adicionarhotéis: Permitir que o usuário adicione novos hotéis ao sistema.
+ ○ Buscarhotéisporcidade: Permitir que o usuário liste todos os hotéis disponíveis em uma cidade específica.
+ ○ Fazerreserva: Permitir que um usuário faça uma reserva em um hotel. Isso deve diminuir o número de quartos disponiveis do hotel.
+ ○ Cancelarreserva: Permitir que um usuário cancele uma reserva. Isso deve aumentar o númerodequartos disponiveis no hotel correspondente.
+ ○ Listarreservas: Mostrar todas as reservas, incluindo detalhes do hotel e do cliente.
+ 3. RegrasdeNegócio:
+ ○ Umhotelsópodeaceitarreservas se houver quartos disponíveis.
+ ○ Asreservasdevemseridentificadas por um ID único e associadas a um único hotel.
+ 4. DesafiosAdicionais (Opcionais):
+ ○ Implementarumafunçãodecheck-inecheck-out que atualize a disponibilidade de quartos.
+ ○ Gerarrelatórios de ocupação para um hotel.
+ ○ Permitir que ousuário avalie o hotel após a estadia, e armazenar essas avaliações dentro do objeto do hotel.   *//
+
+console.log('\n----RESERVA HOTEL----\n')
+const prompt = require('prompt-sync')();
+
+let hoteis = [];
+let reservas = [];
+
+function adicionarHotel(id, nome_do_hotel, cidade, quartos_Totais, quartos_Disponiveis) {
+    let hotel =  {id, nome_do_hotel, cidade, quartos_Totais, quartos_Disponiveis};
+    hoteis.push(hotel);
+}
+
+function consultarHoteisPorCidade(cidade) {
+    let hoteisNaCidade = hoteis.filter(function(hotel) {
+        return hotel.cidade === cidade;
+    });
+    return hoteisNaCidade;
+}
+
+function adicionarReserva(idReservada, idHotel, nomeCliente, cidade) {
+    let hotel = hoteis.find(function(h) {
+        return h.id === idHotel;
+    });
+    if (hotel && hotel.quartos_Disponiveis > 0) {
+        hotel.quartos_Disponiveis--;
+        let reserva = {
+            idReservada: idReservada,
+            idHotel: idHotel,
+            nomeCliente: nomeCliente,
+            cidade: cidade
+        };
+        reservas.push(reserva);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function removerReserva(idReservada) {
+    let reservaIndex = reservas.findIndex(function(r) {
+        return r.idReservada === idReservada;
+    });
+    if (reservaIndex !== -1) {
+        let reserva = reservas[reservaIndex];
+        let hotel = hoteis.find(function(h) {
+            return h.id === reserva.idHotel;
+        });
+        hotel.quartos_Disponiveis++;
+        reservas.splice(reservaIndex, 1);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function imprimir() {
+    let lista = reservas.map(function(reserva) {
+        let hotel = hoteis.find(function(h) {
+            return h.id === reserva.idHotel;
+        });
+        return {
+            idReservada: reserva.idReservada,
+            nomeCliente: reserva.nomeCliente,
+            hotel: hotel
+        };
+    });
+    return lista;
+}
+
+function exibirOpcao() {
+    console.log("===== OPÇÃO =====")
+    console.log("1. Adicionar Hotel")
+    console.log("2. Consultar Hotéis por Cidade")
+    console.log("3. Adicionar Reserva")
+    console.log("4. Remover Reserva")
+    console.log("5. Imprimir Reservas")
+    console.log("6. Sair")
+}
+
+function voltarPrograma() {
+    let opcao;
+    do {
+        exibirOpcao();
+        opcao = parseFloat(prompt("Selecione uma opção: "));
+        switch (opcao) {
+            case 1:
+                let id = parseFloat(prompt("ID do hotel: "));
+                let nome_do_hotel = prompt("Nome do hotel: ");
+                let cidade = prompt("Cidade do hotel: ");
+                let quartos_Totais = parseFloat(prompt("Quartos totais do hotel: "));
+                let quartos_Disponiveis = parseFloat(prompt("Quartos disponíveis do hotel: "));
+                adicionarHotel(id, nome_do_hotel, cidade, quartos_Totais, quartos_Disponiveis);
+            console.log("-----------------------------------------------")
+            console.log("----ADICIONADA COM SUCESSO HOTEL----")
+             console.log("Id: ", id)
+              console.log("Nome do hotel: ", nome_do_hotel)
+             console.log("Cidade: " ,cidade)
+             console.log("Quartos Totais: ", quartos_Totais)
+             console.log("Quartos Disponíveis: ", quartos_Disponiveis)
+             console.log("-----------------------------------------------")   
+                break;
+            case 2:
+                let cidadeConsulta = prompt("Digite a cidade para consultar hotéis: ");
+                let hoteisAchados = consultarHoteisPorCidade(cidadeConsulta);
+                console.log("-----------------------------------------------")
+                console.log("----CIDADE CONSULTADA----")
+                console.log("Hotéis achados em " + cidadeConsulta + ":", hoteisAchados)
+                console.log("-----------------------------------------------")
+                break;
+            case 3:
+                let id_Reserva = parseFloat(prompt("ID da reserva: "));
+                let id_Hotel_Reserva = parseFloat(prompt("ID do hotel para reserva: "));
+                let nome_do_Cliente_Reserva = prompt("Nome do cliente para reserva: ");
+                let cidadeReservada = prompt("Nome da cidade para reserva: ");
+                if (adicionarReserva(id_Reserva, id_Hotel_Reserva, nome_do_Cliente_Reserva, cidadeReservada)) {
+                    console.log("-----------------------------------------------")
+                    console.log("----Reserva adicionada com sucesso!----")
+                } else {
+                    console.log("Não foi possível adicionar reserva. Quartos insuficientes ou hotel não foi encontrado no sistema.")
+                    console.log("-----------------------------------------------")
+                }
+                break;
+            case 4:
+                let idReservaRemover = parseFloat(prompt("ID da reserva para cancelamento: "));
+                if (removerReserva(idReservaRemover)) {
+                    console.log("-----------------------------------------------")
+                    console.log("----Reserva removida com sucesso!----")
+                } else {
+                    console.log("Não é possível remover a reserva. Reserva não foi encontrada.")
+                    console.log("-----------------------------------------------")
+                }
+                break;
+            case 5:
+                let imprimirReservas = imprimir();
+                console.log("Imprimir reservas:", imprimirReservas)
+                console.log("----Impressão concluída!----")
+                console.log("-----------------------------------------------")
+                break;
+            case 6:
+                console.log("Programa encerrado.");
+                console.log("-----------------------------------------------")
+                break;
+            default:
+                console.log("Comando inválido. Escolha uma opção válido.")
+                console.log("-----------------------------------------------")
+                break;
+        }
+    } while (opcao !== 6);
+}
+
+voltarPrograma();
+
+console.log("-----------------------------------------------")
